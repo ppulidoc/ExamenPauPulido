@@ -33,7 +33,7 @@ abstract class dataBase: RoomDatabase() {
             return INSTANCE!!
         }
 
-        private fun buildDatabase(context: Context): dataBase {
+       /* private fun buildDatabase(context: Context): dataBase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 dataBase::class.java,
@@ -41,15 +41,14 @@ abstract class dataBase: RoomDatabase() {
             )
                 .build()
         }
-    }
-/*
+    }*/
         private fun buildDatabase(context: Context): dataBase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 dataBase::class.java,
-                "alumnes_database"
+                "productes_database"
             )
-                .createFromAsset("databases/alumnes_database.db").build()
+                .createFromAsset("databases/productes_database.db").build()
         }
-    }*/
+    }
 }
