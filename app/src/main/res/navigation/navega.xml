@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navega"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.paudam.examenpaupulido.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_contactaFragment"
+            app:destination="@id/contactaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_insertFragment"
+            app:destination="@id/insertFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_updateDeleteFragment"
+            app:destination="@id/updateDeleteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactaFragment"
+        android:name="com.paudam.examenpaupulido.contacta.ContactaFragment"
+        android:label="fragment_contacta"
+        tools:layout="@layout/fragment_contacta" />
+    <fragment
+        android:id="@+id/insertFragment"
+        android:name="com.paudam.examenpaupulido.insert.InsertFragment"
+        android:label="fragment_insert"
+        tools:layout="@layout/fragment_insert" />
+    <fragment
+        android:id="@+id/updateDeleteFragment"
+        android:name="com.paudam.examenpaupulido.updateidelete.updateDeleteFragment"
+        android:label="fragment_update_delete"
+        tools:layout="@layout/fragment_update_delete" />
+</navigation>
