@@ -8,17 +8,52 @@
         android:layout_height="match_parent"
         tools:context=".updateidelete.updateDeleteFragment">
 
-
         <Button
             android:id="@+id/buttonUpdate"
-            android:layout_width="64dp"
-            android:layout_height="57dp"
-            android:layout_marginTop="620dp"
-            android:text="+"
+            android:layout_width="145dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="552dp"
+            android:text="UPDATE"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.847"
+            app:layout_constraintHorizontal_bias="0.224"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="122dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="552dp"
+            android:text="DELETE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.83"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Nom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextPreu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Preu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
