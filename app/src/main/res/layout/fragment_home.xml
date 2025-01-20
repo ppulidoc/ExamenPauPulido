@@ -9,6 +9,7 @@
         tools:context=".home.HomeFragment">
 
 
+
         <Button
             android:id="@+id/buttonInsert"
             android:layout_width="64dp"
@@ -19,6 +20,16 @@
             app:layout_constraintHorizontal_bias="0.847"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewProductes"
+            android:layout_width="301dp"
+            android:layout_height="396dp"
+            android:layout_marginTop="60dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
