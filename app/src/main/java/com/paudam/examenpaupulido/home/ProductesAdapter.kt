@@ -38,7 +38,6 @@ class ProductesAdapter (private val mList: List<Producte>) : RecyclerView.Adapte
 
         holder.layoutRecycler.setOnClickListener { view ->
             view.findNavController().navigate(R.id.action_homeFragment_to_updateDeleteFragment)
-
         }
 
     }

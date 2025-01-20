@@ -38,5 +38,9 @@
         android:id="@+id/updateDeleteFragment"
         android:name="com.paudam.examenpaupulido.updateidelete.updateDeleteFragment"
         android:label="fragment_update_delete"
-        tools:layout="@layout/fragment_update_delete" />
+        tools:layout="@layout/fragment_update_delete" >
+        <action
+            android:id="@+id/action_updateDeleteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

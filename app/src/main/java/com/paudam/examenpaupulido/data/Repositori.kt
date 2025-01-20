@@ -34,6 +34,23 @@ class Repositori {
             }
         }
 
+
+
+        //TODO:funcio qyue cridi al delete
+
+        fun deleteProducte(context: Context, nom:String, preu:Int){
+
+            //Connectar la BD
+            repositori_database = initializeDB(context)
+
+            CoroutineScope(IO).launch {
+                repositori_database!!.ProducteDAO().borrarProducte(nom,preu)
+            }
+        }
+
+
+
+
         //TODO:funcio que torni la select
 
         fun obtenirProductes(context: Context): LiveData<List<Producte>>? {
