@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.paudam.examenpaupulido.R
 import com.paudam.examenpaupulido.databinding.FragmentUpdateDeleteBinding
+import com.paudam.examenpaupulido.home.ProductesAdapter
 
 
 class updateDeleteFragment : Fragment() {

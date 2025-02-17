@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_insertFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_insertFragment_to_insertFirebaseFragment"
+            app:destination="@id/insertFirebaseFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateDeleteFragment"
@@ -43,4 +46,8 @@
             android:id="@+id/action_updateDeleteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/insertFirebaseFragment"
+        android:name="com.paudam.examenpaupulido.insertFirebase.InsertFirebaseFragment"
+        android:label="InsertFirebaseFragment" />
 </navigation>

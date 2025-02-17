@@ -4,6 +4,7 @@ plugins {
 
     //PLUGIN PER AL KSP
     id("com.google.devtools.ksp") version "1.9.20-1.0.14"
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -59,7 +60,9 @@ dependencies {
     ksp("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
 
-
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation("com.google.firebase:firebase-analytics:21.5.1")
+    implementation("com.google.firebase:firebase-firestore:25.1.2")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

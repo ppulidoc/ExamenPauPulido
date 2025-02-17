@@ -11,4 +11,6 @@ class InsertFragmentVM:ViewModel() {
         var producteVM=Producte(nom, preu)
         Repositori.insertProducte(context,producteVM)
     }
+
+
 }

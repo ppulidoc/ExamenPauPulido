@@ -36,11 +36,12 @@ class InsertFragment : Fragment() {
                 }
             }
             findNavController().navigate(R.id.action_insertFragment_to_homeFragment)
-
-
-
-
         }
+
+        binding.buttonGoInsertUser.setOnClickListener(){
+            findNavController().navigate(R.id.action_insertFragment_to_insertFirebaseFragment)
+        }
+
 
 
 
