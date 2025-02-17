@@ -42,6 +42,12 @@ class InsertFragment : Fragment() {
             findNavController().navigate(R.id.action_insertFragment_to_insertFirebaseFragment)
         }
 
+        binding.buttonGoLoginUser.setOnClickListener(){
+            findNavController().navigate(R.id.action_insertFragment_to_loginFragment)
+        }
+
+
+
 
 
 

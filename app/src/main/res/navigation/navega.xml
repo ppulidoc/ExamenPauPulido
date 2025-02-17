@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_insertFragment_to_insertFirebaseFragment"
             app:destination="@id/insertFirebaseFragment" />
+        <action
+            android:id="@+id/action_insertFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/updateDeleteFragment"
@@ -49,5 +52,21 @@
     <fragment
         android:id="@+id/insertFirebaseFragment"
         android:name="com.paudam.examenpaupulido.insertFirebase.InsertFirebaseFragment"
-        android:label="InsertFirebaseFragment" />
+        android:label="InsertFirebaseFragment" >
+        <action
+            android:id="@+id/action_insertFirebaseFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pantallaHolaLoginFragment"
+        android:name="com.paudam.examenpaupulido.insertFirebase.PantallaHolaLoginFragment"
+        android:label="PantallaHolaLoginFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.paudam.examenpaupulido.insertFirebase.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_pantallaHolaLoginFragment"
+            app:destination="@id/pantallaHolaLoginFragment" />
+    </fragment>
 </navigation>

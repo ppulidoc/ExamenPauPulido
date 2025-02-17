@@ -50,10 +50,21 @@
 
         <Button
             android:id="@+id/buttonGoInsertUser"
+            android:layout_width="193dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="32dp"
+            android:text="GO INSERT USERS"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonInsert" />
+
+        <Button
+            android:id="@+id/buttonGoLoginUser"
             android:layout_width="146dp"
             android:layout_height="44dp"
-            android:layout_marginTop="56dp"
-            android:text="GO USERS"
+            android:layout_marginTop="100dp"
+            android:text="GO LOGIN"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
