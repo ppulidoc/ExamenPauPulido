@@ -9,13 +9,12 @@
         tools:context=".home.HomeFragment">
 
 
-
         <Button
             android:id="@+id/buttonInsert"
-            android:layout_width="64dp"
-            android:layout_height="57dp"
+            android:layout_width="222dp"
+            android:layout_height="64dp"
             android:layout_marginTop="620dp"
-            android:text="+"
+            android:text="IR A INSERTS I LOGIN"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.847"
             app:layout_constraintStart_toStartOf="parent"

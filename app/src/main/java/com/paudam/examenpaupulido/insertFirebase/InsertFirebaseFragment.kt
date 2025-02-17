@@ -42,6 +42,10 @@ class InsertFirebaseFragment : Fragment() {
             }
         }
 
+        binding.buttonLogin.setOnClickListener(){
+            findNavController().navigate(R.id.action_insertFirebaseFragment_to_loginFragment)
+        }
+
         return binding.root
 
 

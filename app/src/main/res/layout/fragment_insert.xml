@@ -41,7 +41,7 @@
             android:id="@+id/buttonInsert"
             android:layout_width="146dp"
             android:layout_height="44dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="44dp"
             android:text="INSERT"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -52,10 +52,9 @@
             android:id="@+id/buttonGoInsertUser"
             android:layout_width="193dp"
             android:layout_height="45dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="152dp"
             android:text="GO INSERT USERS"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonInsert" />
 
@@ -63,12 +62,24 @@
             android:id="@+id/buttonGoLoginUser"
             android:layout_width="146dp"
             android:layout_height="44dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="212dp"
             android:text="GO LOGIN"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buttonInsert" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="270dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="416dp"
+            android:text="USUARIOS"
+            android:textSize="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.773"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
