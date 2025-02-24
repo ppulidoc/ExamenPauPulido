@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_insertFirebaseFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_insertFirebaseFragment_to_pantallaHolaLoginFragment"
+            app:destination="@id/pantallaHolaLoginFragment" />
     </fragment>
     <fragment
         android:id="@+id/pantallaHolaLoginFragment"

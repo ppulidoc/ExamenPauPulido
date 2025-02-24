@@ -9,11 +9,16 @@ import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.paudam.examenpaupulido.databinding.FragmentInsertFirebaseBinding
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.FirebaseFirestore
 import com.paudam.examenpaupulido.R
 
 class InsertFirebaseFragment : Fragment() {
     private lateinit var binding: FragmentInsertFirebaseBinding
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+    private val viewModelInsertFirebase: FIsertFirebaseVM by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,43 +29,55 @@ class InsertFirebaseFragment : Fragment() {
             R.layout.fragment_insert_firebase, container, false
         )
 
+        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+
         binding.buttonInsert.setOnClickListener() {
             if (binding.editTextEmail.text.isNotEmpty() && binding.editTextPasswd.text.isNotEmpty()) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(
-                    binding.editTextEmail.text.toString(),
-                    binding.editTextPasswd.text.toString()
-                ).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        showMssg("Ha funcionado")
-                    } else {
-                        // Si ocurre un error, mostrar un mensaje
-                        showAlert("Error al registrar el usuario")
-                    }
+                //coger campos necesarios para bdd y para comprovaciones
+                val email = binding.editTextEmail.text.toString().trim()
+                val password = binding.editTextPasswd.text.toString().trim()
+                val nombreUser = binding.editTextNom.text.toString().trim()
+                val edadUser = binding.editTextEdat.text.toString().trim()
+
+                // comporvaciones
+                if (email.isEmpty() || password.isEmpty() || nombreUser.isEmpty() || edadUser.isEmpty()) {
+                    viewModelInsertFirebase.showAlert("Todos los campos son obligatorios", requireContext())
+                    return@setOnClickListener
                 }
-            } else {
-                showAlert("Por favor, ingresa un correo y una contraseña válidos")
-            }
+
+                val edad = edadUser.toIntOrNull()
+                if (edad == null || edad < 0) {
+                    viewModelInsertFirebase.showAlert("La edad debe ser un número válido", requireContext())
+                    return@setOnClickListener
+                }
+
+                //crear el user en el auth
+                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        //si el auth es correcto busca si existe el usuario
+                        task.result?.user?.let { userActual ->
+                            //si entra bien hace el insert
+                            viewModelInsertFirebase.createUser(db, userActual, nombreUser, edad, requireContext())
+                            findNavController().navigate(R.id.action_insertFirebaseFragment_to_pantallaHolaLoginFragment)
+                        } ?: run {
+                            viewModelInsertFirebase.showAlert("Error: No se pudo obtener el usuario después del registro", requireContext())
+                        }
+                    } else {
+                        viewModelInsertFirebase.showAlert("Error al registrar usuario: ${task.exception?.message}", requireContext())
+                    }
         }
 
         binding.buttonLogin.setOnClickListener(){
             findNavController().navigate(R.id.action_insertFirebaseFragment_to_loginFragment)
         }
-
+            }
+        }
         return binding.root
-
-
     }
 
 
 
-    private fun showAlert(message: String) {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Error")
-        builder.setMessage(message)
-        builder.setPositiveButton("Aceptar", null)
-        val dialog: AlertDialog = builder.create()
-        dialog.show()
-    }
 
     private fun showMssg(message: String) {
         val builder = AlertDialog.Builder(requireContext())

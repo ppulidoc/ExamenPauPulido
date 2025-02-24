@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.paudam.examenpaupulido" />
+                  <option name="mobileSdkAppId" value="1:833724946120:android:e2e201dc5f1b05a69d37fd" />
+                  <option name="projectId" value="uf2projectefirebase" />
+                  <option name="projectNumber" value="833724946120" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
