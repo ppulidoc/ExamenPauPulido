@@ -63,7 +63,11 @@
     <fragment
         android:id="@+id/pantallaHolaLoginFragment"
         android:name="com.paudam.examenpaupulido.insertFirebase.PantallaHolaLoginFragment"
-        android:label="PantallaHolaLoginFragment" />
+        android:label="PantallaHolaLoginFragment" >
+        <action
+            android:id="@+id/action_pantallaHolaLoginFragment_to_detalleUsuarioFragment"
+            app:destination="@id/detalleUsuarioFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.paudam.examenpaupulido.insertFirebase.LoginFragment"
@@ -72,4 +76,8 @@
             android:id="@+id/action_loginFragment_to_pantallaHolaLoginFragment"
             app:destination="@id/pantallaHolaLoginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/detalleUsuarioFragment"
+        android:name="com.paudam.examenpaupulido.insertFirebase.DetalleUsuarioFragment"
+        android:label="DetalleUsuarioFragment" />
 </navigation>

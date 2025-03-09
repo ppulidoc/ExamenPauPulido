@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.paudam.examenpaupulido.R
 import com.paudam.examenpaupulido.adapter.UserAdapter
+import androidx.navigation.fragment.findNavController
 import com.paudam.examenpaupulido.databinding.FragmentPantallaHolaLoginBinding
 import com.paudam.examenpaupulido.model.User
 
@@ -38,7 +39,10 @@ class PantallaHolaLoginFragment : Fragment() {
         db = FirebaseFirestore.getInstance()
 
         // Configurar RecyclerView
-        userAdapter = UserAdapter(userList)
+        userAdapter = UserAdapter(userList) { user ->
+            // Clic en un item: pasar los datos del usuario al siguiente fragmento
+            mostrarDetalleUsuario(user)
+        }
         binding.recyclerViewUsers.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = userAdapter
@@ -52,10 +56,6 @@ class PantallaHolaLoginFragment : Fragment() {
         // Actualizar la edad del usuario autenticado
         binding.buttonActualizarEdad.setOnClickListener {
             actualizarEdadUsuario()
-        }
-
-        binding.buttonEliminar.setOnClickListener {
-            eliminarUsuario()
         }
 
         return binding.root
@@ -76,7 +76,6 @@ class PantallaHolaLoginFragment : Fragment() {
                 Log.e("Firebase", "Error obteniendo lista de usuarios", e)
             }
     }
-
 
     private fun actualizarEdadUsuario() {
         val user = auth.currentUser
@@ -114,36 +113,16 @@ class PantallaHolaLoginFragment : Fragment() {
             }
     }
 
-    private fun eliminarUsuario() {
-        val user = auth.currentUser
-
-        if (user == null) {
-            Toast.makeText(requireContext(), "No hay usuario autenticado", Toast.LENGTH_SHORT).show()
-            Log.e("Firebase", "Usuario no autenticado")
-            return
+    private fun mostrarDetalleUsuario(user: User) {
+        // Crear el bundle correctamente
+        val bundle = Bundle().apply {
+            putString("nombre", user.name)
+            putString("correo", user.email)
+            putInt("edad", user.age ?: 0)  // Asigna un valor predeterminado para edad si es null
         }
 
-        // Eliminar el documento del usuario de la colección "Users"
-        val userRef = db.collection("Users").document(user.uid)
-
-        userRef.delete()
-            .addOnSuccessListener {
-                Toast.makeText(requireContext(), "Usuario eliminado de Firestore", Toast.LENGTH_SHORT).show()
-                Log.d("Firebase", "Usuario eliminado correctamente para UID: ${user.uid}")
-
-                // Después de eliminar al usuario, también puedes cerrar sesión si es necesario
-                auth.signOut()
-
-                // Obtener la lista de usuarios nuevamente después de eliminar
-                obtenerUsuarios()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(requireContext(), "Error al eliminar usuario en Firestore", Toast.LENGTH_SHORT).show()
-                Log.e("Firebase", "Error al eliminar usuario", e)
-            }
+        // Navegar usando el bundle
+        findNavController().navigate(R.id.action_pantallaHolaLoginFragment_to_detalleUsuarioFragment, bundle)
     }
-
-
-
 
 }

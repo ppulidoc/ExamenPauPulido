@@ -7,9 +7,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.paudam.examenpaupulido.R
 import com.paudam.examenpaupulido.model.User
-
-class UserAdapter(private var usersList: MutableList<User>) :
-    RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+class UserAdapter(
+    private var usersList: MutableList<User>,
+    private val itemClickListener: (User) -> Unit 
+) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textViewNom: TextView = view.findViewById(R.id.textViewUserName)
@@ -28,10 +29,14 @@ class UserAdapter(private var usersList: MutableList<User>) :
         holder.textViewNom.text = user.name
         holder.textViewEmail.text = user.email
         holder.textViewAge.text = user.age.toString()
+
+        // Detectar clic en el item y pasar los datos
+        holder.itemView.setOnClickListener {
+            itemClickListener(user)
+        }
     }
 
     override fun getItemCount(): Int = usersList.size
-
 
     fun updateList(newList: List<User>) {
         usersList.clear()
@@ -39,3 +44,4 @@ class UserAdapter(private var usersList: MutableList<User>) :
         notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
     }
 }
+
