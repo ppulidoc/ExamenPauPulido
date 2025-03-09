@@ -11,6 +11,7 @@ import com.paudam.examenpaupulido.databinding.FragmentInsertFirebaseBinding
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.firebase.firestore.FirebaseFirestore
 import com.paudam.examenpaupulido.R
 
@@ -19,6 +20,7 @@ class InsertFirebaseFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private val viewModelInsertFirebase: FIsertFirebaseVM by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,10 +70,14 @@ class InsertFirebaseFragment : Fragment() {
                     }
         }
 
+
+
+                }
+
+
+    }
         binding.buttonLogin.setOnClickListener(){
             findNavController().navigate(R.id.action_insertFirebaseFragment_to_loginFragment)
-        }
-            }
         }
         return binding.root
     }
